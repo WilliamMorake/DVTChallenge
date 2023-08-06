@@ -1,0 +1,11 @@
+C:\Users\morak\source\repos\DVTElevatorChallenge\DVTElevatorChallenge\bin\Debug\netcoreapp2.1\DVTElevatorChallenge.deps.json
+C:\Users\morak\source\repos\DVTElevatorChallenge\DVTElevatorChallenge\bin\Debug\netcoreapp2.1\DVTElevatorChallenge.runtimeconfig.json
+C:\Users\morak\source\repos\DVTElevatorChallenge\DVTElevatorChallenge\bin\Debug\netcoreapp2.1\DVTElevatorChallenge.runtimeconfig.dev.json
+C:\Users\morak\source\repos\DVTElevatorChallenge\DVTElevatorChallenge\bin\Debug\netcoreapp2.1\DVTElevatorChallenge.dll
+C:\Users\morak\source\repos\DVTElevatorChallenge\DVTElevatorChallenge\bin\Debug\netcoreapp2.1\DVTElevatorChallenge.pdb
+C:\Users\morak\source\repos\DVTElevatorChallenge\DVTElevatorChallenge\obj\Debug\netcoreapp2.1\DVTElevatorChallenge.csprojAssemblyReference.cache
+C:\Users\morak\source\repos\DVTElevatorChallenge\DVTElevatorChallenge\obj\Debug\netcoreapp2.1\DVTElevatorChallenge.csproj.CoreCompileInputs.cache
+C:\Users\morak\source\repos\DVTElevatorChallenge\DVTElevatorChallenge\obj\Debug\netcoreapp2.1\DVTElevatorChallenge.AssemblyInfoInputs.cache
+C:\Users\morak\source\repos\DVTElevatorChallenge\DVTElevatorChallenge\obj\Debug\netcoreapp2.1\DVTElevatorChallenge.AssemblyInfo.cs
+C:\Users\morak\source\repos\DVTElevatorChallenge\DVTElevatorChallenge\obj\Debug\netcoreapp2.1\DVTElevatorChallenge.dll
+C:\Users\morak\source\repos\DVTElevatorChallenge\DVTElevatorChallenge\obj\Debug\netcoreapp2.1\DVTElevatorChallenge.pdb
