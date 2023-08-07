@@ -2,7 +2,7 @@ using DVTElevatorChallenge;
 using NUnit.Framework;
 using System;
 
-namespace Tests
+namespace DVTElevatorUnitTests
 {
     [TestFixture]
     public class ElevatorControllerTests
@@ -18,7 +18,7 @@ namespace Tests
 
             elevatorController = new ElevatorController(numFloors, numElevators, maxCapacity);
         }
-
+    
         [Test]
         public void CallElevator_ElevatorIsAvailable_ElevatorMovesToRequestedFloor()
         {

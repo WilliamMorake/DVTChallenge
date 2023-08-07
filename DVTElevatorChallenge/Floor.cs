@@ -7,23 +7,28 @@ namespace DVTElevatorChallenge
     public class Floor
     {
         public int FloorNumber { get; private set; }
-        public int NumberOfPeopleWaiting { get; private set; }
+        public List<int> WaitingPassengers { get; private set; }
 
         public Floor(int floorNumber)
         {
             FloorNumber = floorNumber;
-            NumberOfPeopleWaiting = 0;
+            WaitingPassengers = new List<int>();
         }
 
-        public void AddWaitingPassengers(int numPassengers)
+        public void AddWaitingPassengers(params int[] destinationFloors)
         {
-            NumberOfPeopleWaiting += numPassengers;
-            Console.WriteLine($"{numPassengers} passengers are waiting on floor {FloorNumber}.");
+            WaitingPassengers.AddRange(destinationFloors);
+            Console.WriteLine($"Passengers are waiting on floor {FloorNumber}.");
+        }
+
+        public List<int> GetWaitingPassengers()
+        {
+            return WaitingPassengers;
         }
 
         public void RemoveWaitingPassengers(int numPassengers)
         {
-            NumberOfPeopleWaiting -= numPassengers;
+            WaitingPassengers.RemoveRange(0, numPassengers);
             Console.WriteLine($"{numPassengers} passengers were picked up from floor {FloorNumber}.");
         }
     }

@@ -13,47 +13,84 @@ namespace DVTElevatorChallenge
 
     public class Elevator
     {
-        public int CurrentFloor { get; private set; }
-        public Direction CurrentDirection { get; private set; }
         public int MaxCapacity { get; private set; }
         public int CurrentCapacity { get; private set; }
+        public int CurrentFloor { get; private set; }
+        public Direction CurrentDirection { get; private set; }
+        private List<int> DestinationFloors { get; set; }
 
         public Elevator(int maxCapacity)
         {
-            CurrentFloor = 1; // The elevator starts at the first floor
-            CurrentDirection = Direction.None; // The initial direction is none
             MaxCapacity = maxCapacity;
             CurrentCapacity = 0;
-        }
-
-        public void MoveToFloor(int targetFloor)
-        {
-            CurrentDirection = targetFloor > CurrentFloor ? Direction.Up : Direction.Down;
-            while (CurrentFloor != targetFloor)
-            {
-                CurrentFloor += CurrentDirection == Direction.Up ? 1 : -1;
-                Console.WriteLine($"Elevator is moving to floor {CurrentFloor}.");
-            }
+            CurrentFloor = 1;
             CurrentDirection = Direction.None;
+            DestinationFloors = new List<int>();
         }
 
-        public void AddPassenger(int numPassengers)
+        public void MoveToFloor(int floorNumber)
         {
-            if (CurrentCapacity + numPassengers > MaxCapacity)
+            if (floorNumber < 1 || floorNumber > 10)
             {
-                Console.WriteLine("Cannot add passengers, weight limit reached.");
+                Console.WriteLine("Invalid floor number.");
                 return;
             }
 
-            CurrentCapacity += numPassengers;
-            Console.WriteLine($"{numPassengers} passengers added. Current capacity: {CurrentCapacity}/{MaxCapacity}");
+            if (CurrentFloor == floorNumber)
+            {
+                Console.WriteLine($"Elevator is already on floor {floorNumber}.");
+                return;
+            }
+
+            CurrentDirection = floorNumber > CurrentFloor ? Direction.Up : Direction.Down;
+
+            // Move the elevator to the target floor
+            while (CurrentFloor != floorNumber)
+            {
+                Console.WriteLine($"Elevator moving {CurrentDirection.ToString().ToLower()}... Current floor: {CurrentFloor}");
+                System.Threading.Thread.Sleep(1000); // Simulating elevator movement between floors (1 second delay)
+                if (CurrentDirection == Direction.Up)
+                    CurrentFloor++;
+                else
+                    CurrentFloor--;
+
+            }
+
+            Console.WriteLine($"Elevator arrived at floor {CurrentFloor}");
+            CurrentDirection = Direction.None;
+        }
+
+        public void AddPassenger(int destinationFloor)
+        {
+            if (CurrentCapacity >= MaxCapacity)
+            {
+                Console.WriteLine("Elevator is at full capacity. Cannot add more passengers.");
+                return;
+            }
+
+            DestinationFloors.Add(destinationFloor);
+            CurrentCapacity++;
         }
 
         public void RemovePassenger(int numPassengers)
         {
-            CurrentCapacity -= numPassengers;
-            Console.WriteLine($"{numPassengers} passengers removed. Current capacity: {CurrentCapacity}/{MaxCapacity}");
+            if (CurrentCapacity >= numPassengers)
+            {
+                DestinationFloors.RemoveRange(0, numPassengers);
+                CurrentCapacity -= numPassengers;
+            }
+        }
+
+        public List<int> GetDestinationFloors()
+        {
+            return DestinationFloors;
+        }
+
+        public void ClearCapacity()
+        {
+            CurrentCapacity = 0;
         }
     }
+
 
 }

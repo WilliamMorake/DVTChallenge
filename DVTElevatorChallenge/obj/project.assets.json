@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\morak\\source\\repos\\DVTElevatorChallenge\\DVTElevatorChallenge\\DVTElevatorChallenge.csproj",
+      "projectUniqueName": "C:\\Users\\morak\\Documents\\DVTChallenge\\DVTElevatorChallenge\\DVTElevatorChallenge.csproj",
       "projectName": "DVTElevatorChallenge",
-      "projectPath": "C:\\Users\\morak\\source\\repos\\DVTElevatorChallenge\\DVTElevatorChallenge\\DVTElevatorChallenge.csproj",
+      "projectPath": "C:\\Users\\morak\\Documents\\DVTChallenge\\DVTElevatorChallenge\\DVTElevatorChallenge.csproj",
       "packagesPath": "C:\\Users\\morak\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\morak\\source\\repos\\DVTElevatorChallenge\\DVTElevatorChallenge\\obj\\",
+      "outputPath": "C:\\Users\\morak\\Documents\\DVTChallenge\\DVTElevatorChallenge\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

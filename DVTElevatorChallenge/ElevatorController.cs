@@ -35,6 +35,18 @@ namespace DVTElevatorChallenge
             }
         }
 
+        public void ShowWaitingPassengerDestinations()
+        {
+            foreach (var floor in floors)
+            {
+                var passengers = floor.GetWaitingPassengers();
+                if (passengers.Count > 0)
+                {
+                    Console.WriteLine($"Floor {floor.FloorNumber} - Passengers are going to floors: {string.Join(", ", passengers)}");
+                }
+            }
+        }
+
         public void CallElevator(int floorNumber)
         {
             // Find the nearest available elevator
@@ -61,14 +73,37 @@ namespace DVTElevatorChallenge
             }
 
             nearestElevator.MoveToFloor(floorNumber);
-            nearestElevator.RemovePassenger(floors[floorNumber - 1].NumberOfPeopleWaiting);
-            floors[floorNumber - 1].RemoveWaitingPassengers(floors[floorNumber - 1].NumberOfPeopleWaiting);
+
+            // Boarding passengers and setting destination floors
+            var passengersToBoard = floors[floorNumber - 1].GetWaitingPassengers();
+            foreach (var destinationFloor in passengersToBoard)
+            {
+                nearestElevator.AddPassenger(destinationFloor);
+            }
+
+
+            // Removing passengers from the floor
+            floors[floorNumber - 1].RemoveWaitingPassengers(passengersToBoard.Count);
+
+            // Elevator moving to destination
+            foreach (var destination in nearestElevator.GetDestinationFloors())
+            {
+                nearestElevator.MoveToFloor(destination);
+            }
+
+            nearestElevator.ClearCapacity();
         }
 
-        public void SetWaitingPassengers(int floorNumber, int numPassengers)
+        public List<Elevator> GetElevators()
         {
-            floors[floorNumber - 1].AddWaitingPassengers(numPassengers);
+            return elevators;
+        }
+
+        public void SetWaitingPassengers(int floorNumber, params int[] destinationFloors)
+        {
+            floors[floorNumber - 1].AddWaitingPassengers(destinationFloors);
         }
     }
+
 
 }
