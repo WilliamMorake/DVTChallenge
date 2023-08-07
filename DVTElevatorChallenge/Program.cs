@@ -6,7 +6,7 @@ namespace DVTElevatorChallenge
     {
         static void Main(string[] args)
         {
-            /* int numFloors = 10;
+             int numFloors = 10;
              int numElevators = 3;
              int maxCapacity = 8;
 
@@ -41,22 +41,8 @@ namespace DVTElevatorChallenge
 
              // Showing the updated waiting passenger destinations
              Console.WriteLine("\nUpdated Waiting Passenger Destinations:");
-             elevatorController.ShowWaitingPassengerDestinations();*/
-            // Arrange
+             elevatorController.ShowWaitingPassengerDestinations();
 
-            int maxCapacity = 8;
-            Elevator elevator = new Elevator(maxCapacity);
-            int numPassengers = 7;
-            for (int i = 0; i < numPassengers; i++)
-            {
-                elevator.AddPassenger(i + 1);
-            }
-            Console.WriteLine("\n count: "+ elevator.MaxCapacity);
-
-            // Act
-            elevator.RemovePassenger(numPassengers + 1);
-
-            Console.WriteLine("\n After count: " + elevator.MaxCapacity);
             Console.ReadKey();
         }
     }
